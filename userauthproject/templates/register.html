@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+{% block body_block %}
+	<p>Register Here</p>
+	{% if registered %}
+		<strong>Thank for your registering!</strong>
+		<a href="/">Return to homepage.</a><br />
+		Click <a href="/login/">here</a> to login
+	{% else %}
+		<form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% for field in user_form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text }}<br />
+				{{ field }}<br />
+			{% endfor %}
+
+			{% for field in profile_form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text }}<br />
+				{{ field }}<br />
+			{% endfor %}
+			<br />
+			<input type="submit" value="Submit"/>
+		</form>
+	{% endif %} 
+{% endblock %}
+</html>

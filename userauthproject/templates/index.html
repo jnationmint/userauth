@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+
+{% block body_block %}
+	<ul>
+		{% if user.is_authenticated %} 
+			<li><a href="/logout/">Logout</a></li>
+			<li><a href="/profile/">View Profile</a></li>
+		{% else %}
+			<li><a href="/login/">Login</a></li>
+			<li><a href="/register/">Register</a></li>
+		{% endif %}
+		
+	</ul>	
+{% endblock %}
+
+</html>

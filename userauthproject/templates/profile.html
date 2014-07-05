@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+	{% block body_block %}
+		<p>User profile here</p>
+		Name: {{ name }}<br />
+		Email: {{ email }}<br />
+		Website: {{ website }}<br />
+		Opinion on shoes: {{ opinion }}<br />
+		System message: {{ msg }}<br />
+	{% endblock %}
+</html>
